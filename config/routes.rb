@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :questions
   resources :users
   resources :games
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'play#index'
+  get 'home', to: 'home#index'
+  root 'home#index'
 end

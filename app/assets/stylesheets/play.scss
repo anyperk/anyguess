@@ -34,7 +34,50 @@ body {
   }
 }
 
+.text {
+  font-family: 'Chicle', cursive;
+  -webkit-text-stroke: 1px black;
+  color: $fond-yellow;
+  text-shadow:
+          3px 3px 0 #000,
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
+}
+
 #anyguess {
+  height: 300px;
+  width: 350px;
+  position: relative;
+
+  .top, .bottom {
+    height: 150px;
+    width: 200px;
+    margin: 6px;
+    float: left;
+  }
+  .top {
+    position: absolute;
+    font-size: 120px;
+    top: 60px;
+    left: 0;
+  }
+  .bottom {
+    position: absolute;
+    font-size: 80px;
+    bottom: 0;
+    left: 0;
+  }
+  .right {
+    position: absolute;
+    top: 95px;
+    right: -20px;
+    height: 300px;
+    width: 200px;
+    font-size: 250px;
+    float: right;
+  }
 
 }
 
