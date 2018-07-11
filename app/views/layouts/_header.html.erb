@@ -12,6 +12,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/play/">Play</a>
       </li>
+      <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
@@ -26,6 +27,20 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
+      -->
     </ul>
+
+
+    <ul class="navbar-nav navbar-right">
+    <% if current_user %>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= current_user.email %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/logout">Logout</a>
+      </li>
+    <% end %>
+    </ul>
+
   </div>
 </nav>

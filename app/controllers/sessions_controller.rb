@@ -16,13 +16,21 @@ class SessionsController < ApplicationController
     redirect_to play_index_path
   end
 
-  # DELETE /sessions/1
-  # DELETE /sessions/1.json
+  # DELETE /sessions
   def destroy
-    @session.destroy
-    respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    reset
+  end
+
+  # GET /sessions/logout
+  # GET /sessions/logout.json
+  def logout
+    reset
+  end
+
+  private
+
+  def reset
+    reset_session
+    redirect_to root_path
   end
 end
