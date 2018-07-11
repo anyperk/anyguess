@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<table class="table">
+  <tr>
+    <th class="name" scope="col">Email</th>
+    <td class="desc"><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th class="name" scope="col">Name</th>
+    <td class="desc"><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th class="name" scope="col">Role</th>
+    <td class="desc"><%= @user.role %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

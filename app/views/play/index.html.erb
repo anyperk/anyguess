@@ -1,9 +1,8 @@
-
-<h1>Active Games</h1>
-
-<% @games.each do |game| %>
-  <div class="game-list">
-    <h2><%= link_to game.name, "/play/" + game.id.to_s %></h2>
-    <%= game.desc %> <%= game.scheduled_at %>
-  </div>
-<% end %>
+<div id="login">
+  <% @games.each do |game| %>
+    <div class="game-list">
+      <h2><%= link_to game.name, "/play/" + game.id.to_s %></h2>
+      <%= game.scheduled_at %>
+    </div>
+  <% end %>
+</div>

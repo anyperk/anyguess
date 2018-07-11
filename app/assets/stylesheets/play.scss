@@ -11,6 +11,34 @@
 @import "scaffolds";
 @import "table";
 
+$fond-blue: #314380;
+$fond-yellow: #FEBE10;
+
 body {
   margin-top: 50px;
+
+  background: $fond-blue;
+  color: $fond-yellow;
+
+  a {
+    color: $fond-yellow;
+    text-decoration: none;
+    &:hover {
+      color: $fond-yellow;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $fond-yellow;
+    }
+  }
+}
+
+#anyguess {
+
+}
+
+#login {
+  background: $fond-blue;
+  color: $fond-yellow;
 }

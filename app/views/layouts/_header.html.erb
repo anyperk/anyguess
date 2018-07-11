@@ -30,14 +30,22 @@
       -->
     </ul>
 
-
     <ul class="navbar-nav navbar-right">
       <% if current_user %>
         <li class="nav-item">
           <%= avatar(current_user.email) %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sessions/logout">Logout</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.email %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/users/me">Profile</a>
+            <a class="dropdown-item" href="/sessions/logout">Logout</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
       <% end %>
     </ul>
