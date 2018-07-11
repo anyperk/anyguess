@@ -34,22 +34,22 @@ body {
   }
 }
 
-.text {
-  font-family: 'Chicle', cursive;
-  -webkit-text-stroke: 1px black;
-  color: $fond-yellow;
-  text-shadow:
-          3px 3px 0 #000,
-          -1px -1px 0 #000,
-          1px -1px 0 #000,
-          -1px 1px 0 #000,
-          1px 1px 0 #000;
-}
-
 #anyguess {
   height: 300px;
   width: 350px;
   position: relative;
+
+  .text {
+    font-family: 'Chicle', cursive;
+    -webkit-text-stroke: 1px black;
+    color: $fond-yellow;
+    text-shadow:
+            3px 3px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+  }
 
   .top, .bottom {
     height: 150px;

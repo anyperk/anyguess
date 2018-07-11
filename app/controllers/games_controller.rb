@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_action :authentication_required!
+  before_action :admin_required!
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   # GET /games
