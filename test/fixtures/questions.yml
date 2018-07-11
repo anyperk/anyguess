@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  game: one
   text: MyString
   answer1: MyString
   answer2: MyString
 
 two:
+  game: two
   text: MyString
   answer1: MyString
   answer2: MyString

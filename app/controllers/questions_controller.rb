@@ -62,14 +62,13 @@ class QuestionsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_question
+      @question = Question.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_question
-    @question = Question.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def question_params
-    params.require(:question).permit(:text, :answer1, :answer2)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def question_params
+      params.require(:question).permit(:game_id, :text, :answer1, :answer2)
+    end
 end

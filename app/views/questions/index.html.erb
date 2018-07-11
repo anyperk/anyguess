@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Game</th>
       <th>Text</th>
       <th>Answer1</th>
       <th>Answer2</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <td><%= question.game %></td>
         <td><%= question.text %></td>
         <td><%= question.answer1 %></td>
         <td><%= question.answer2 %></td>
