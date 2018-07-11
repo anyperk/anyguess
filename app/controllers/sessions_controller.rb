@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout 'minimal'
 
   # GET /sessions/new
   def new

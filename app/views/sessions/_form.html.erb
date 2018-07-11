@@ -1,16 +1,19 @@
-<div class="content">
-  <section>
-    <div style="color: red;"><%= flash[:notice] if flash[:notice]  %></div>
+<div id="login" class="content" role="main">
+  <div class="centerbox">
+    <h2>AnyGuess</h2>
+    <section>
+      <div style="color: red;"><%= flash[:notice] if flash[:notice] %></div>
 
-    <%= form_for @user, url: sessions_path do |f| %>
-      <div>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-      </div>
+      <%= form_for @user, url: sessions_path, class: 'form-vertical' do |f| %>
+        <div class="form-inputs">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
 
-      <div>
-        <%= f.submit 'Log In' %>
-      </div>
-    <% end %>
-  </section>
+        <div class="form-actions">
+          <%= f.button 'Log In' %>
+        </div>
+      <% end %>
+    </section>
+  </div>
 </div>

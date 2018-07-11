@@ -1,19 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @game.name %>
-</p>
+<h1>Games</h1>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @game.desc %>
-</p>
+<table class="table">
+  <tr>
+    <th class="name" scope="col">Name</th>
+    <td class="desc"><%= @game.name %></td>
+  </tr>
+  <tr>
+    <th class="name" scope="col">Desc</th>
+    <td class="desc"><%= @game.desc %></td>
+  </tr>
+  <tr>
+    <th class="name" scope="col">Scheduled</th>
+    <td class="desc"><%= @game.scheduled_at %></td>
+  </tr>
+  <% @questions.each do |q| %>
+  <tr>
+    <th></th>
+    <td>
+      <b><%= q.text %>?</b><br/>
+      <%= q.answer1 %>
+      <br/>
+      <%= q.answer2 %>
+    </td>
+  </tr>
+  <% end %>
+</table>
 
-<p>
-  <strong>Scheduled at:</strong>
-  <%= @game.scheduled_at %>
-</p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  <%= link_to 'Edit', edit_game_path(@game) %> |
+  <%= link_to 'Back', games_path %>

@@ -1,5 +1,6 @@
 class PlayController < ApplicationController
   before_action :authentication_required!
+  layout 'minimal'
 
   def index
     @games = Game.all
@@ -7,5 +8,6 @@ class PlayController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    
   end
 end

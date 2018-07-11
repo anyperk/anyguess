@@ -66,6 +66,7 @@ class GamesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_game
     @game = Game.find(params[:id])
+    @questions = @game.questions
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
