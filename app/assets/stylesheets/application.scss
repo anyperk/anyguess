@@ -7,3 +7,20 @@
 body {
     margin-top: 50px;
 }
+
+.container {
+  clear: both;
+  border: 1px blue;
+}
+
+.table-show {
+  width: 60%;
+  float: left;
+  border: 1px red;
+}
+
+.table-form {
+  width: 39%;
+  float: right;
+  border: 1px green;
+}
