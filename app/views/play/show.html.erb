@@ -1,2 +1,6 @@
-<h1>Play#show</h1>
-<p>Find me in app/views/play/show.html.erb</p>
+
+
+Current players:<br/>
+<% @players.each do |player| %>
+  <%= image_tag(gravatar_url(player.user.email, 64)) %>
+<% end %>
