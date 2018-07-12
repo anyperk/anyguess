@@ -16,5 +16,10 @@ module ApplicationCable
         reject_unauthorized_connection
       end
     end
+
+    def session
+      key = Rails.application.config.session_options.fetch(:key)
+      cookies.encrypted[key]&.symbolize_keys || {}
+    end
   end
 end
