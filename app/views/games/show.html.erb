@@ -25,10 +25,10 @@
         <td></td>
       </tr>
       <% @questions.each do |q| %>
-        <tr>
-          <th><i class="fas fa-cross"></i></th>
+        <tr id="question-<%= q.id %>">
+          <th></th>
           <td>
-            <b><%= q.text %>?</b><br/>
+            <b><%= q.text %>? <i class="fas fa-eraser" title="delete" onClick="deleteQuestion(<%= q.id %>)"></i></b><br/>
             <%= q.answer1 %>
             <br/>
             <%= q.answer2 %>
