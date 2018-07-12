@@ -65,7 +65,7 @@ class GamesController < ApplicationController
 
   def ask
     @question = Question.find(params[:id])
-    ActionCable.server.broadcast 'question_notifications_channel', message: '<p>Hello World!</p>'
+    ActionCable.server.broadcast 'question_notifications_channel', message: @question.to_json
   end
 
   private
