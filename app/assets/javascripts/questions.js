@@ -11,6 +11,7 @@ function clearLoginView() {
 }
 
 function renderQuestion(data) {
+    console.log(data['message']);
   const question = JSON.parse(data['message']);
   const answer1 = question['answer1'];
   const answer2 = question['answer2'];
