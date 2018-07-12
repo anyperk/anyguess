@@ -1,6 +1,80 @@
-<h1>Editing Game</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', game: @game %>
+<div class="container clearfix">
+  <div>
+    <h1>Games</h1>
+  </div>
+  <div class="table-show" id="game" data-id="<%= @game.id %>">
+    <table id="game" class="table">
+      <tr>
+        <th class="name" scope="col">Name</th>
+        <td class="desc"><%= @game.name %></td>
+      </tr>
+      <tr>
+        <th class="name" scope="col">Desc</th>
+        <td class="desc"><%= @game.desc %></td>
+      </tr>
+      <tr>
+        <th class="name" scope="col">State</th>
+        <td class="desc">
+          <select id="game_state">
+            <%= options_for_select(%w{new started running completed cancelled}, selected: @game.state) %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th class="name" scope="col">Players</th>
+        <td class="desc"><%= @game.players.count %></td>
+      </tr>
+      <tr>
+        <th class="name" scope="col">Scheduled</th>
+        <td class="desc"><%= @game.scheduled_at %></td>
+      </tr>
+      <tr>
+        <th>
+          Questions
+        </th>
+        <td></td>
+      </tr>
+      <% @questions.each do |q| %>
+        <tr id="question-<%= q.id %>">
+          <th></th>
+          <td>
+            <b><%= q.text %>?
+              <i class="fas fa-eraser" title="delete" onClick="deleteQuestion(<%= q.id %>)"></i></b><br/>
+            <%= q.answer1 %>
+            <br/>
+            <%= q.answer2 %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="table-form">
+    <h3>Add Question</h3>
+    <%= form_with(model: @question, id: "new_question", class: 'form form-vertical', format: 'json') do |f| %>
+      <%= f.hidden_field "game_id", value: @game.id %>
+      <div class="form-group">
+        <%= f.label :text %>
+        <%= f.text_area :text %>
+      </div>
 
-<%= link_to 'Show', @game %> |
+      <div class="form-group">
+        <%= f.label :answer1 %>
+        <%= f.text_area :answer1 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :answer2 %>
+        <%= f.text_area :answer2 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.button 'Submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

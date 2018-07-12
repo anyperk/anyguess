@@ -3,7 +3,7 @@ class PlayController < ApplicationController
   layout 'minimal'
 
   def index
-    @games = Game.all
+    @games = Game.where(state: 'started').all
   end
 
   def show

@@ -1,19 +1,10 @@
-<% case @game.state %>
-<% when 'new' %>
-  <div id="login">
-    <div id="anyguess">
-      <div class="top text">Any</div>
-      <div class="bottom text">Guess</div>
-      <div class="right text">?</div>
-    </div>
+<div id="login">
+  <div id="anyguess">
+    <div class="top text">Any</div>
+    <div class="bottom text">Guess</div>
+    <div class="right text">?</div>
   </div>
-<% when 'started' %>
-  <div id="login">
-    <div id="anyguess">
-      <div class="text">Get Ready!</div>
-    </div>
-  </div>
-<% end %>
+</div>
 
 <div id="players">
   Current players:<br/>

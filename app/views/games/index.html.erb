@@ -7,6 +7,7 @@
     <tr>
       <th class="name" scope="col">Name</th>
       <th class="desc" scope="col">Desc</th>
+      <th class="time" scope="col">State</th>
       <th class="time" scope="col">Scheduled at</th>
       <th class="actions" scope="col"></th>
     </tr>
@@ -15,11 +16,11 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= link_to game.name, url_for(game) %></td>
+        <td><%= link_to game.name, edit_game_path(game) %></td>
         <td><%= game.desc %></td>
+        <td><%= game.state %></td>
         <td><%= game.scheduled_at %></td>
         <td>
-          <%= link_to 'Show', game %>
           <%= link_to 'Edit', edit_game_path(game) %>
           <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
