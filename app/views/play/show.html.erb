@@ -1,4 +1,13 @@
-
+<% case @game.state %>
+<% when 'new' %>
+  <div id="login">
+    <div id="anyguess">
+      <div class="top text">Any</div>
+      <div class="bottom text">Guess</div>
+      <div class="right text">?</div>
+    </div>
+  </div>
+<% end %>
 
 Current players:<br/>
 <% @players.each do |player| %>
