@@ -5,3 +5,6 @@
 App.room = App.cable.subscriptions.create "QuestionNotificationsChannel",
   received: (data) ->
     $('#messages').append data['message']
+    console.log "message received:"
+    console.log data['message']
+    console.log $("#messages").text()

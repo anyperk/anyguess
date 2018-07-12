@@ -40,6 +40,21 @@
     data: {id: id},
     success: (result)->
       console.log "askQuestion: success"
+      $("button.answer[data-id='"+id+"'").removeAttr("disabled")
+    error: (result)->
+      console.log "askQuestion: failed"
+      console.log result
+  })
+
+@answerQuestion = (id, answer)->
+  $.ajax({
+    url: "/games/"+id+"/answer.json"
+    type: "POST"
+    data: {id: id, answer: answer}
+    success: (result)->
+      console.log "answerQuestion: success"
+      $("button.answer").attr("disabled", "true")
+      $("button.question[data-id='"+ id + "'").attr("disabled", "true")
   })
 
 $(document).ready ->
@@ -62,4 +77,10 @@ $(document).ready ->
     id = $(this).data("id")
     console.log "question "+id
     askQuestion(id)
+  )
+
+  $("button.answer").click((e)->
+    id = $(this).data("id")
+    answer = $(this).data("answer")
+    answerQuestion(id, answer)
   )

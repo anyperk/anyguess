@@ -42,10 +42,13 @@
         <tr id="question-<%= q.id %>">
           <th><button class="question" data-id="<%= q.id %>">Ask!</button></th>
           <td>
-            <b><%= q.text %>?</b><br/>
-            <%= q.answer1 %>
-            <br/>
-            <%= q.answer2 %>
+            <table class="table">
+              <tr><td colspan="2"><%= q.text %></td></tr>
+              <tr>
+                <td><%= q.answer1 %><br/><button class="answer" data-id="<%= q.id %>" data-answer="1" disabled="true">Correct</button></td>
+                <td><%= q.answer2 %><br/><button class="answer" data-id="<%= q.id %>" data-answer="2" disabled="true">Correct</button></td>
+              </tr>
+            </table>
           </td>
         </tr>
       <% end %>
