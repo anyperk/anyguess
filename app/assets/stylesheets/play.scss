@@ -75,7 +75,24 @@ body {
     font-size: 250px;
     float: right;
   }
+}
 
+.question-container {
+  h2 {
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    td {
+      text-align: center;
+      font-size: 30px;
+      padding-top: 100px;
+      line-height: 40px;
+    }
+  }
 }
 
 #login {
