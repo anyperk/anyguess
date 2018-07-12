@@ -56,10 +56,10 @@ $(document).ready ->
     $("#game_state option:selected").each ()->
       # only one should be selected
       changeState(id, $(this).text())
+  )
 
   $("button.question").click((e)->
     id = $(this).data("id")
     console.log "question "+id
     askQuestion(id)
-  )
   )
