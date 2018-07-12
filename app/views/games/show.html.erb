@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container clearfix">
   <div>
     <h1>Games</h1>
+
+    <%= link_to 'Edit', edit_game_path(@game) %> |
+    <%= link_to 'Back', games_path %>
   </div>
   <div class="table-show" id="game" data-id="<%= @game.id %>">
     <table id="game" class="table">
@@ -38,9 +40,9 @@
       </tr>
       <% @questions.each do |q| %>
         <tr id="question-<%= q.id %>">
-          <th></th>
+          <th><button class="question" data-id="<%= q.id %>">Ask!</button></th>
           <td>
-            <b><%= q.text %>? <i class="fas fa-eraser" title="delete" onClick="deleteQuestion(<%= q.id %>)"></i></b><br/>
+            <b><%= q.text %>?</b><br/>
             <%= q.answer1 %>
             <br/>
             <%= q.answer2 %>
@@ -50,27 +52,13 @@
     </table>
   </div>
   <div class="table-form">
-    <h3>Add Question</h3>
-    <%= form_with(model: @question, id: "new_question", class: 'form form-vertical', format: 'json') do |f| %>
-      <%= f.hidden_field "game_id", value: @game.id  %>
-      <div class="form-group">
-        <%= f.label :text %>
-        <%= f.text_area :text %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :answer1 %>
-        <%= f.text_area :answer1 %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :answer2 %>
-        <%= f.text_area :answer2 %>
-      </div>
-
-      <div class="form-group">
-        <%= f.button 'Submit' %>
-      </div>
-    <% end %>
+    <h3>players</h3>
+    <div id="players">
+      <% @game.players.each do |player| %>
+        <div class="user" data-id="<%= player.user.id %>" data-role="<%= player.user.role %>" data-me="<%= current_user.email == player.user.email %>">
+          <%= image_tag(gravatar_url(player.user.email, 64), alt: player.user.email, title: player.user.email) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

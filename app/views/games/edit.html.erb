@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container clearfix">
   <div>
     <h1>Games</h1>
+
+    <%= link_to 'Play', game_path(@game) %> |
+    <%= link_to 'Back', games_path %>
   </div>
   <div class="table-show" id="game" data-id="<%= @game.id %>">
     <table id="game" class="table">
@@ -74,7 +76,3 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>

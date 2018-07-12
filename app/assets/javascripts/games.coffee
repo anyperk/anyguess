@@ -33,6 +33,15 @@
       console.log "changeState: success"
   })
 
+@askQuestion = (id)->
+  $.ajax({
+    url: "/games/" + id + "/ask.json",
+    type: "POST",
+    data: {id: id},
+    success: (result)->
+      console.log "askQuestion: success"
+  })
+
 $(document).ready ->
   $("#new_question").on("ajax:success", (event) ->
     [data, status, xhr] = event.detail
@@ -47,4 +56,10 @@ $(document).ready ->
     $("#game_state option:selected").each ()->
       # only one should be selected
       changeState(id, $(this).text())
+
+  $("button.question").click((e)->
+    id = $(this).data("id")
+    console.log "question "+id
+    askQuestion(id)
+  )
   )
