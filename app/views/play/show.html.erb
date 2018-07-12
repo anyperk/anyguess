@@ -7,9 +7,19 @@
       <div class="right text">?</div>
     </div>
   </div>
+<% when 'started' %>
+  <div id="login">
+    <div id="anyguess">
+      <div class="text">Get Ready!</div>
+    </div>
+  </div>
 <% end %>
 
-Current players:<br/>
-<% @players.each do |player| %>
-  <%= image_tag(gravatar_url(player.user.email, 64)) %>
-<% end %>
+<div id="players">
+  Current players:<br/>
+  <% @players.each do |player| %>
+    <div class="user" data-id="<%= player.user.id %>" data-role="<%= player.user.role %>" data-me="<%= current_user.email == player.user.email %>">
+      <%= image_tag(gravatar_url(player.user.email, 64), alt: player.user.email, title: player.user.email) %>
+    </div>
+  <% end %>
+</div>

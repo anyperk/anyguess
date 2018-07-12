@@ -85,3 +85,24 @@ body {
   background: $fond-blue;
   color: $fond-yellow;
 }
+
+#players {
+  width: 95%;
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+
+  .user {
+    float: left;
+    width: 68px;
+    height: 68px;
+    border-top: 3px $fond-blue solid;
+    border-bottom: 3px $fond-blue solid;
+  }
+  .user[data-role="admin"] {
+    border-bottom-color: $fond-yellow;
+  }
+  .user[data-me="true"] {
+    border-top-color: $fond-yellow;
+  }
+}

@@ -24,6 +24,15 @@
         tr.remove();
   })
 
+@changeState = (id, value)->
+  $.ajax({
+    url: "/games/"+id+".json",
+    type: "PUT",
+    data: {game: {state: value}},
+    success: (result)->
+      console.log "changeState: success"
+  })
+
 $(document).ready ->
   $("#new_question").on("ajax:success", (event) ->
     [data, status, xhr] = event.detail
@@ -33,4 +42,9 @@ $(document).ready ->
     console.log "ERROR"
     $("#new_question").append "<p>ERROR</p>"
 
-  true
+  $("#game_state").change((event)->
+    id = $("#game").data("id")
+    $("#game_state option:selected").each ()->
+      # only one should be selected
+      changeState(id, $(this).text())
+  )

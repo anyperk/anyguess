@@ -4,7 +4,7 @@
   <div>
     <h1>Games</h1>
   </div>
-  <div class="table-show">
+  <div class="table-show" id="game" data-id="<%= @game.id %>">
     <table id="game" class="table">
       <tr>
         <th class="name" scope="col">Name</th>
@@ -16,7 +16,11 @@
       </tr>
       <tr>
         <th class="name" scope="col">State</th>
-        <td class="desc"><%= @game.state %></td>
+        <td class="desc">
+          <select id="game_state">
+            <%= options_for_select(%w{new started running completed cancelled}, selected: @game.state) %>
+          </select>
+        </td>
       </tr>
       <tr>
         <th class="name" scope="col">Players</th>
