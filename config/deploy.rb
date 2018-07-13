@@ -40,3 +40,15 @@ set :keep_releases, 5
 set :bundle_flags, '--quiet'
 
 set :rvm_ruby_version, '2.3.4'
+
+# Foreman settings
+set :foreman_use_sudo, :rvm # Set to :rbenv for rbenv sudo, :rvm for rvmsudo or true for normal sudo
+set :foreman_roles, :all
+set :foreman_init_system, 'upstart'
+set :foreman_export_path, ->{ File.join(Dir.home, '.init') }
+set :foreman_app, -> { fetch(:application) }
+set :foreman_app_name_systemd, -> { "#{ fetch(:foreman_app) }.target" }
+set :foreman_options, ->{ {
+    app: fetch(:application),
+    log: File.join(fetch(:shared_path), 'log')
+} }
