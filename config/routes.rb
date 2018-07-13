@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :games do
     post :ask
+    post :answer
   end
   resources :play
   resources :sessions, only: [:new, :create, :destroy] do
