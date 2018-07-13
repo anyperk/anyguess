@@ -2,9 +2,23 @@ App.room = App.cable.subscriptions.create("QuestionNotificationsChannel", {
   received: function(data) {
     clearLoginView();
     renderQuestion(data);
+    startCountdown();
   }
 });
 
+function startCountdown() {
+  $("#countdown").countdown360({
+    radius      : 60.5,
+    seconds     : 20,
+    strokeWidth : 15,
+    fillStyle   : '#0276FD',
+    strokeStyle : '#003F87',
+    fontSize    : 50,
+    fontColor   : '#FFFFFF',
+    autostart: false,
+    onComplete  : function () { console.log('completed') }
+  }).start()
+}
 
 function clearLoginView() {
   $('#login').remove();
@@ -15,6 +29,7 @@ function renderQuestion(data) {
   const answer1 = question['answer1'];
   const answer2 = question['answer2'];
   const text = question['text'];
+
 
   const html = `<div class="question-container">
     <h2>Question:</h2>
