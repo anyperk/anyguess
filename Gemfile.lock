@@ -60,6 +60,9 @@ GEM
     capistrano-bundler (1.3.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-foreman (1.3.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -219,6 +222,7 @@ DEPENDENCIES
   bootstrap (~> 4.1.1)
   byebug
   capistrano-bundler
+  capistrano-foreman
   capistrano-rails
   capistrano-rails-console
   capistrano-rvm

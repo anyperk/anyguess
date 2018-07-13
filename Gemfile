@@ -52,6 +52,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 
   gem 'capistrano-bundler'
+  gem 'capistrano-foreman'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm'
