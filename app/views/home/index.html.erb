@@ -6,12 +6,4 @@
   </div>
 </div>
 
-<div id="logout">
-  <% if current_user %>
-    <%= link_to 'Join a game!', '/play' %> |
-    <% if current_user.role == 'admin' %>
-      <a href="/games">Admin</a> |
-    <% end %>
-    <a href="/sessions/logout">Logout</a>
-  <% end %>
-</div>
+<%= render 'users/menu' %>

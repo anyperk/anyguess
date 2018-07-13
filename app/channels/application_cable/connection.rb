@@ -7,11 +7,16 @@ module ApplicationCable
       logger.add_tags 'ActionCable', current_user.name
     end
 
+    def current_user
+      session[:current_user_id] && User.find(session[:current_user_id])
+    end
+
     protected
 
     def find_verified_user
-      if verified_user = session[:current_user_id] && User.find(session[:current_user_id])
-        verified_user
+      u = current_user
+      if u
+        u
       else
         reject_unauthorized_connection
       end

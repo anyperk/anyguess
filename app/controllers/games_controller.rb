@@ -83,6 +83,8 @@ class GamesController < ApplicationController
     @game      = Game.find(params[:id])
     @questions = @game.questions
     @question  = Question.new
+    @players = @game.players.where(viewing: false)
+    @viewers = @game.players.where(viewing: true)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

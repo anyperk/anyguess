@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   get 'home', to: 'home#index'
-  root 'home#index'
+  root 'play#index'
   mount ActionCable.server => '/cable'
 end

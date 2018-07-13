@@ -1,5 +1,9 @@
 App.room = App.cable.subscriptions.create("QuestionNotificationsChannel", {
     received: function (data) {
+        id = $("#game-container").data("id");
+        if (!id) {
+            return
+        }
         if (data['message']['answer']) {
             game.Answer(data['message']['answer']);
         } else {
@@ -14,6 +18,7 @@ class Game {
         this.countdown = null;
         this.gameover = null;
         this.playing = true;
+        this.game = $("#game-container").data("id");
     }
 
     Playing() {
@@ -28,20 +33,20 @@ class Game {
 
         this.selectedAnswer = null;
 
-        this.clearLoginView();
-        this.startCountdown();
-
         $("#question").html(text + '?');
         $("#answer1").html(answer1);
         $("#answer2").html(answer2);
         $("#message").text("");
         $("div.answer").removeClass("correct");
         $("div.answer").removeClass("selected");
+
+        this.clearLoginView();
+        this.startCountdown();
     }
 
     Answer(answer) {
         console.log("answer: " + answer);
-        this.countdown.stop();
+        $("#countdown").countdown360({}).stop();
 
         $("div.answer.answer"+answer).addClass("correct");
 
@@ -70,11 +75,11 @@ class Game {
     Incorrect() {
         $('#message').text('Sorry, wrong answer. You are out of the game.');
         this.playing = false;
-
+        App.loser.lost({action: 'lost', game_id: $("#game-container").data("id")})
     }
 
     startCountdown() {
-        this.countdown = $("#countdown").countdown360({
+        $("#countdown").countdown360({
             radius: 60.5,
             seconds: 20,
             strokeWidth: 15,
@@ -89,8 +94,7 @@ class Game {
                     game.Incorrect();
                 }
             }
-        });
-        this.countdown.start();
+        }).start();
     }
 }
 

@@ -55,13 +55,25 @@
     </table>
   </div>
   <div class="table-form">
-    <h3>players</h3>
-    <div id="players">
-      <% @game.players.each do |player| %>
-        <div class="user" data-id="<%= player.user.id %>" data-role="<%= player.user.role %>" data-me="<%= current_user.email == player.user.email %>">
-          <%= image_tag(gravatar_url(player.user.email, 64), alt: player.user.email, title: player.user.email) %>
-        </div>
-      <% end %>
+
+    <div id="users">
+      <div id="players">
+        Current players<br/>
+        <% @players.each do |player| %>
+          <div class="user" data-id="<%= player.user.id %>" data-role="<%= player.user.role %>" data-me="<%= current_user.email == player.user.email %>">
+            <%= image_tag(gravatar_url(player.user.email, 64), alt: player.user.email, title: player.user.email) %>
+          </div>
+        <% end %>
+      </div>
+      <div id="viewers">
+        Current viewers<br/>
+        <% @viewers.each do |player| %>
+          <div class="user" data-id="<%= player.user.id %>" data-role="<%= player.user.role %>" data-me="<%= current_user.email == player.user.email %>">
+            <%= image_tag(gravatar_url(player.user.email, 64), alt: player.user.email, title: player.user.email) %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
   </div>
 </div>
