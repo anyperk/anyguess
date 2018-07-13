@@ -97,11 +97,6 @@ class Game {
         });
         this.countdown.start();
     }
-
-    CountdownEnded() {
-
-    }
-
 }
 
 const game = new Game();
@@ -122,93 +117,3 @@ $(document).ready(function () {
         }
     });
 });
-
-//
-// let isGameover = false;
-// let selectedAnswer = null;
-//
-// class Questions {
-//   startCountdown() {
-//     $("#countdown").countdown360({
-//       radius      : 60.5,
-//       seconds     : 20,
-//       strokeWidth : 15,
-//       fillStyle   : '#314380',
-//       strokeStyle : '#FEBE10',
-//       fontSize    : 50,
-//       fontColor   : '#FEBE10',
-//       autostart: false,
-//       onComplete  : function () { console.log('completed'); isGameover = true }
-//     }).start()
-//   }
-//
-//   clearLoginView() {
-//     $('#login').remove();
-//   }
-//
-//   renderQuestion(data) {
-//     const question = data['message'];
-//     const answer1 = question['answer1'];
-//     const answer2 = question['answer2'];
-//     const text = question['text'];
-//
-//     $("#question").html(text+'?');
-//     $("#answer1").html(answer1);
-//     $("#answer2").html(answer2);
-//   }
-//
-//   checkIfAnswerIsCorrect(answer) {
-//     if(answer === selectedAnswer) {
-//       this.renderCorrectMessage()
-//     } else {
-//       this.renderYouLost()
-//     }
-//   }
-//
-//   renderYouLost() {
-//     $('.message').empty()
-//     $('.message').append('<div style="margin-top: 30px; text-align: center;font-size: 50px;color: #f13131;">You lost!</div>')
-//     isGameover = true
-//   }
-//
-//   renderCorrectMessage() {
-//     $('.message').empty()
-//     $('.message').append('<div style="margin-top: 30px; text-align: center;font-size: 50px;color: #13b713;">Correct!</div>')
-//   }
-//
-// }
-//
-// function renderYouAlreadyLostMessage() {
-//   $('.message').empty()
-//   $('.message').append('<div style="margin-top: 30px; text-align: center;font-size: 50px;color: #f6d515;">You already lost!</div>')
-// }
-//
-// function selectA() {
-//   if (isGameover) {
-//     renderYouAlreadyLostMessage()
-//     return
-//   }
-//   $('.answer1').css({
-//     "border": '1px solid red',
-//     "borderRadius": '4px'
-//   })
-//   $('.answer2').css({
-//     "border": 'none'
-//   })
-//   selectedAnswer = '1'
-// }
-//
-// function selectB() {
-//   if (isGameover) {
-//     renderYouAlreadyLostMessage()
-//     return
-//   }
-//   $('.answer2').css({
-//     "border": '1px solid red',
-//     "borderRadius": '4px'
-//   })
-//   $('.answer1').css({
-//     border: 'none'
-//   })
-//   selectedAnswer = '2'
-// }
