@@ -106,11 +106,28 @@ body {
   color: $fond-yellow;
 }
 
-#players {
-  width: 95%;
+#logout {
   position: absolute;
-  right: 0px;
+  right: 25px;
+  top: 25px;
+}
+
+#users {
+  position: absolute;
+  right: 25px;
   bottom: 10px;
+  left: 25px;
+
+  #players {
+    float: left;
+    width: 49%;
+  }
+
+  #viewers {
+    float: right;
+    width: 49%;
+    text-align: right;
+  }
 
   .user {
     float: left;
@@ -124,5 +141,8 @@ body {
   }
   .user[data-me="true"] {
     border-top-color: $fond-yellow;
+  }
+  #viewers .user {
+    float: right;
   }
 }

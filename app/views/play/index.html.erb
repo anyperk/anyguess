@@ -1,8 +1,25 @@
 <div id="login">
+  <div id="anyguess">
+    <div class="top text">Any</div>
+    <div class="bottom text">Guess</div>
+    <div class="right text">?</div>
+  </div>
+
+  <h1>Join a game</h1>
+  <% if @games.count > 0 %>
   <% @games.each do |game| %>
     <div class="game-list">
-      <h2><%= link_to game.name, "/play/" + game.id.to_s %></h2>
-      <%= game.scheduled_at %>
+      <h4><%= link_to game.name, "/play/" + game.id.to_s %></h4>
     </div>
   <% end %>
+  <% else %>
+    <div class="game-list">
+      <h4>no open games</h4>
+    </div>
+  <% end %>
+
+</div>
+
+<div id="logout">
+  <a href="/sessions/logout">Logout</a>
 </div>

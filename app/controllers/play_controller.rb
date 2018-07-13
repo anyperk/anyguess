@@ -7,11 +7,12 @@ class PlayController < ApplicationController
   end
 
   def show
-    @game    = Game.find(params[:id])
-    @players = @game.players
-    playing  = @players.select { |u| u.id == current_user.id }.count > 0
-    unless playing
-      @players.create(user: current_user)
-    end
+    @game = Game.find(params[:id])
+    p = @game.players.find_or_create_by(user: current_user)
+    p.viewing = !%w[started].include?(@game.state)
+    p.save!
+
+    @players = @game.players.where(viewing: false)
+    @viewers = @game.players.where(viewing: true)
   end
 end
