@@ -45,10 +45,12 @@ set :rvm_ruby_version, '2.3.4'
 set :foreman_use_sudo, false # Set to :rbenv for rbenv sudo, :rvm for rvmsudo or true for normal sudo
 set :foreman_roles, :all
 set :foreman_init_system, 'upstart'
-set :foreman_export_path, ->{ File.join(Dir.home, '.init') }
+set :foreman_export_path, ->{ File.join(shared_path, 'init') }
 set :foreman_app, -> { fetch(:application) }
 set :foreman_app_name_systemd, -> { "#{ fetch(:foreman_app) }.target" }
 set :foreman_options, ->{ {
     app: fetch(:application),
-    log: File.join(shared_path, 'log')
+    log: File.join(shared_path, 'log'),
+    run: File.join(shared_path, 'pids'),
+    user: fetch(:user)
 } }
