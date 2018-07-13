@@ -65,7 +65,6 @@ class GamesController < ApplicationController
 
   def ask
     @question = Question.find(params[:id])
-    puts "SENDING QUESTION"
     ActionCable.server.broadcast 'question_notifications_channel', message: @question
     render json: {}
   end
@@ -73,7 +72,6 @@ class GamesController < ApplicationController
   def answer
     question = params[:id]
     answer = params[:answer]
-    puts "SENDING ANSWER"
     ActionCable.server.broadcast 'question_notifications_channel', message: {answer: answer, question: question}
     render json: {}
   end
