@@ -52,3 +52,4 @@ production:
   database: anyguess_production
   username: anyguess
   password: <%= ENV['ANYGUESS_DATABASE_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
