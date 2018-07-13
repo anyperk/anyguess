@@ -32,9 +32,14 @@
   </div>
 </div>
 
-<div id="logout">
-  <a href="/sessions/logout">Logout</a>
-</div>
+<% if current_user %>
+  <div id="logout">
+    <% if current_user.role == 'admin' %>
+      <a href="/games">Admin</a> |
+    <% end %>
+    <a href="/sessions/logout">Logout</a>
+  </div>
+<% end %>
 
 <div id="users">
   <div id="players">

@@ -1,18 +1,20 @@
-# Change to match your CPU core count
-workers 2
-
 # Min and Max threads per worker
 threads 1, 6
 
 app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
 
 # Default to production
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
 
-# Set up socket location
-bind "unix://#{app_dir}/tmp/sockets/puma.sock"
+if rails_env == 'production'
+  # Set up socket location
+  bind "unix://#{app_dir}/tmp/sockets/puma.sock"
+  # Change to match your CPU core count
+  workers 2
+else
+  port ENV.fetch("PORT") { 3000 }
+end
 
 # Logging
 #stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true

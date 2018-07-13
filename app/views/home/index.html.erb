@@ -4,8 +4,14 @@
     <div class="bottom text">Guess</div>
     <div class="right text">?</div>
   </div>
+</div>
 
-  <div>
-    <%= link_to 'Join a game!', '/play' %> | <%= link_to 'Admin', '/games' %>
-  </div>
+<div id="logout">
+  <% if current_user %>
+    <%= link_to 'Join a game!', '/play' %> |
+    <% if current_user.role == 'admin' %>
+      <a href="/games">Admin</a> |
+    <% end %>
+    <a href="/sessions/logout">Logout</a>
+  <% end %>
 </div>
