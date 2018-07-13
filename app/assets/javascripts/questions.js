@@ -25,7 +25,7 @@ class Questions {
       fontSize    : 50,
       fontColor   : '#FFFFFF',
       autostart: false,
-      onComplete  : function () { console.log('completed') }
+      onComplete  : function () { console.log('completed'); isGameover = true }
     }).start()
   }
 
