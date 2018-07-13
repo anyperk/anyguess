@@ -1,15 +1,10 @@
 App.room = App.cable.subscriptions.create("QuestionNotificationsChannel", {
     received: function (data) {
         if (data['message']['answer']) {
-            // questions.checkIfAnswerIsCorrect(data['message']['answer'])
-            // return
             game.Answer(data['message']['answer']);
         } else {
             game.Question(data['message'])
         }
-        // questions.clearLoginView();
-        // questions.renderQuestion(data);
-        // questions.startCountdown();
     }
 });
 
