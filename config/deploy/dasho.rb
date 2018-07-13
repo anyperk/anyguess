@@ -1,3 +1,5 @@
+server "dasho.net", port: 2222, user: "deploy", roles: %w{web app db}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
