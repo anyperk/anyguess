@@ -11,8 +11,8 @@ App.room = App.cable.subscriptions.create("QuestionNotificationsChannel", {
   }
 });
 
-let selectedAnswer = null
-let isGameover = false
+let selectedAnswer = null;
+let isGameover = false;
 
 class Questions {
   startCountdown() {
@@ -34,7 +34,7 @@ class Questions {
   }
 
   renderQuestion(data) {
-    const question = data['message']
+    const question = data['message'];
     const answer1 = question['answer1'];
     const answer2 = question['answer2'];
     const text = question['text'];
