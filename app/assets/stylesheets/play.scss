@@ -146,3 +146,29 @@ body {
     float: right;
   }
 }
+
+#game-container {
+  .answer {
+    cursor: pointer;
+  }
+  .answer:hover {
+    color: gray;
+  }
+  .answer.selected {
+    color: white;
+  }
+  .answer.correct {
+    border-bottom: 3px solid $fond-yellow;
+  }
+  h1#question {
+    color: white;
+    font-size: 50px;
+  }
+  h2#answer1, h2#answer2 {
+    text-align: center;
+    vertical-align: middle;
+  }
+  #message {
+    text-align: center;
+  }
+}
